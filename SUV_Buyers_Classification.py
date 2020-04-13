@@ -41,14 +41,14 @@ y = dataset.iloc[:, -1].values
 
 
 #X is a matrix
-X
+# X
 
 
 # In[6]:
 
 
 #y is a vector
-y
+# y
 
 
 # ### Splitting the dataset into the Training set and Test set
@@ -91,7 +91,7 @@ def confusionMatrix(y_test, y_pred):
 from matplotlib.colors import ListedColormap
 
 get_ipython().run_line_magic('matplotlib', 'inline')
-plt.rcParams['figure.figsize']=10,7
+plt.rcParams['figure.figsize']=9,6
 
 def mapVisualisation(title, classifier,X,y):
     X_set, y_set = X, y
