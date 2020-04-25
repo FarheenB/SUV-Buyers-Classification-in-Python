@@ -7,13 +7,13 @@ Used k-Fold Validation for all the techniques.
 ### Model Accuracy on test set: 
 #### Logistic Regression-
 89.00% 
-#### KNN- 93.00% SVM-
+#### KNN Classifier- 93.00% SVM-
 90.00% 
-#### Kernel SVM-
+#### Kernel SVM Classifier-
 93.00%
-#### Naive Bayer's-
+#### Naive Bayer's Classifier-
 90.00%
-#### Decision Tree-
+#### Decision Tree Classifier-
 91.00%
-#### Random Forest-
+#### Random Forest Classifier-
 91.00%
