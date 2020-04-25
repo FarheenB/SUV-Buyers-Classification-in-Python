@@ -169,6 +169,8 @@ mapVisualisation('Logistic Regression (Test set)', classifier_log,X_test,y_test)
 
 # ## Training the K-NN model on the Training set
 
+# ### (non-linear classifier)
+
 # In[18]:
 
 
@@ -335,6 +337,8 @@ mapVisualisation('Kernel SVM (Test set)', classifier_ker,X_test,y_test)
 
 # ## Training the Naive Bayes model on the Training set
 
+# ### (non-linear classifier)
+
 # In[39]:
 
 
@@ -389,6 +393,8 @@ mapVisualisation('Naive Bayes (Test set)', classifier_nb,X_test,y_test)
 
 # ## Training the Decision Tree Classification model on the Training set
 
+# ### (non-linear classifier)
+
 # In[46]:
 
 
@@ -442,6 +448,8 @@ mapVisualisation('Decision Tree (Test set)', classifier_dtc,X_test,y_test)
 
 
 # ## Training the Random Forest Classification model on the Training set
+
+# ### (non-linear classifier)
 
 # In[53]:
 
@@ -508,40 +516,131 @@ from sklearn.metrics import accuracy_score
 # In[61]:
 
 
-print('Accuracy of Logistic Regression on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_log)*100))
+# Applying k-Fold Cross Validation on Logistic Regression
+from sklearn.model_selection import cross_val_score
+
+accuracies = cross_val_score(estimator = classifier_log, X = X_train, y = y_train, cv = 10)
+print("Accuracies:",list(accuracies*100))
+print("\n")
+print("Mean Accuracy: {:.2f} %".format(accuracies.mean()*100))
+print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
 
 
 # In[62]:
 
 
-print('Accuracy of KNN Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_knn)*100))
+print('Accuracy of Logistic Regression on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_log)*100))
 
 
 # In[63]:
 
 
-print('Accuracy of SVM Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_svm)*100))
+# Applying k-Fold Cross Validation on KNN Classifier
+from sklearn.model_selection import cross_val_score
+
+accuracies = cross_val_score(estimator = classifier_knn, X = X_train, y = y_train, cv = 10)
+print("Accuracies:",list(accuracies*100))
+print("\n")
+print("Mean Accuracy: {:.2f} %".format(accuracies.mean()*100))
+print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
 
 
 # In[64]:
 
 
-print('Accuracy of Kernel SVM Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_ker)*100))
+print('Accuracy of KNN Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_knn)*100))
 
 
 # In[65]:
 
 
-print('Accuracy of Naive Bayes Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_nb)*100))
+# Applying k-Fold Cross Validation on SVM Classifier
+from sklearn.model_selection import cross_val_score
+
+accuracies = cross_val_score(estimator = classifier_svm, X = X_train, y = y_train, cv = 10)
+print("Accuracies:",list(accuracies*100))
+print("\n")
+print("Mean Accuracy: {:.2f} %".format(accuracies.mean()*100))
+print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
 
 
 # In[66]:
 
 
-print('Accuracy of Decision Tree Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_dtc)*100))
+print('Accuracy of SVM Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_svm)*100))
 
 
 # In[67]:
+
+
+# Applying k-Fold Cross Validation on Kernel SVM Classifier
+from sklearn.model_selection import cross_val_score
+
+accuracies = cross_val_score(estimator = classifier_ker, X = X_train, y = y_train, cv = 10)
+print("Accuracies:",list(accuracies*100))
+print("\n")
+print("Mean Accuracy: {:.2f} %".format(accuracies.mean()*100))
+print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
+
+
+# In[68]:
+
+
+print('Accuracy of Kernel SVM Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_ker)*100))
+
+
+# In[69]:
+
+
+# Applying k-Fold Cross Validation on Naive Bayes Classifier
+from sklearn.model_selection import cross_val_score
+
+accuracies = cross_val_score(estimator = classifier_nb, X = X_train, y = y_train, cv = 10)
+print("Accuracies:",list(accuracies*100))
+print("\n")
+print("Mean Accuracy: {:.2f} %".format(accuracies.mean()*100))
+print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
+
+
+# In[70]:
+
+
+print('Accuracy of Naive Bayes Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_nb)*100))
+
+
+# In[71]:
+
+
+# Applying k-Fold Cross Validation on Decision Tree Classifier
+from sklearn.model_selection import cross_val_score
+
+accuracies = cross_val_score(estimator = classifier_dtc, X = X_train, y = y_train, cv = 10)
+print("Accuracies:",list(accuracies*100))
+print("\n")
+print("Mean Accuracy: {:.2f} %".format(accuracies.mean()*100))
+print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
+
+
+# In[72]:
+
+
+print('Accuracy of Decision Tree Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_dtc)*100))
+
+
+# In[73]:
+
+
+# Applying k-Fold Cross Validation on Random Forest Classifier
+from sklearn.model_selection import cross_val_score
+
+accuracies = cross_val_score(estimator = classifier_rand, X = X_train, y = y_train, cv = 10)
+print("Accuracies:",list(accuracies*100))
+print("\n")
+print("Mean Accuracy: {:.2f} %".format(accuracies.mean()*100))
+print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
+
+
+# In[74]:
 
 
 print('Accuracy of Random Forest Classifier on test set: {:.2f}%'.format(accuracy_score(y_test, y_pred_rand)*100))
